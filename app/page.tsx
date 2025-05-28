@@ -9,12 +9,12 @@ export default function Home() {
       </main>
       
 
- <nav className="bg-gray-400 p-14 shadow w-full fixed top-0 left-0 right-0"  style={{ padding: "20px 40px" }}>
-        <ul className="flex justify-center" style={{ marginLeft: "20px", marginRight: "20px" }}>
-          <li className="text-white hover:text-blue-300" style={{ marginRight: "50px" }}>
+ <nav className="bg-background p-6 shadow w-full fixed top-0 left-0 right-0">
+        <ul className="flex justify-center mr-5 ml-5">
+          <li className="text-white hover:text-blue-300 mr-12">
             Home
           </li>
-          <li className="text-white hover:text-blue-300" style={{ marginRight: "50px" }}>
+          <li className="text-white hover:text-blue-300 mr-12">
             About Us
           </li>
           <li className="text-white hover:text-blue-300">
