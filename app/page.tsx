@@ -1,15 +1,15 @@
-import styles from "./page.module.css";
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div>
 
-      <main className={`${styles.main} pt-32`}>
+      <main className={`pt-32`}>
         <h1 className="text-red-400">Home page</h1>
       </main>
 
-      <header className="bg-background p-6 shadow w-full fixed top-0 left-0 right-0 z-50">
-        <div className="relative mx-auto flex max-w-screen-lg flex-col sm:flex-row sm:items-center sm:justify-center">
+      <header className="bg-background p-3 pb-6 shadow w-full fixed top-0 left-0 right-0 z-50">
+        <div className="relative mx-auto flex max-w-screen-lg flex-col sm:flex-row sm:items-center sm:justify-end">
           
           {/* Hamburger dugme */}
           <input className="peer hidden" type="checkbox" id="navbar-toggle" />
@@ -19,15 +19,15 @@ export default function Home() {
             </svg>
           </label>
 
-          <nav className="peer-checked:block hidden sm:block mt-4 sm:mt-0 w-full sm:w-auto text-center">
-            <ul className="flex flex-col sm:flex-row sm:space-x-10 text-white text-lg">
-              <li className="hover:text-blue-300">
+          <nav className="peer-checked:block hidden sm:block mt-4 sm:mt-0 w-full sm:w-auto text-right sm:text-right">
+            <ul className="flex flex-col sm:flex-row mt-4 sm:space-x-10 text-white text-lg">
+              <li className="hover:text-orange-700 active">
                 <a href="#">Home</a>
               </li>
-              <li className="hover:text-blue-300">
+              <li className="hover:text-orange-700">
                 <a href="#">About Us</a>
               </li>
-              <li className="hover:text-blue-300">
+              <li className="hover:text-orange-700">
                 <a href="#">Contact</a>
               </li>
             </ul>
