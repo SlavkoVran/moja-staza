@@ -5,7 +5,7 @@ export default function Home() {
     <div>
 
       <main className={`pt-32`}>
-        <h1 className="text-red-400">Home page</h1>
+        
       </main>
 
       <header className="bg-background p-3 pb-6 shadow w-full fixed top-0 left-0 right-0 z-50">
@@ -25,15 +25,57 @@ export default function Home() {
                 <a href="#">Home</a>
               </li>
               <li className="hover:text-orange-700">
-                <a href="#">About Us</a>
+                <a href="#about_us">About Us</a>
               </li>
               <li className="hover:text-orange-700">
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
         </div>
       </header>
+
+        <div id="about_us">
+          <section className="py-24 relative">
+            <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+                <div className="w-full justify-start items-center gap-8 grid lg:grid-cols-2 grid-cols-1">
+                    <div className="w-full flex-col justify-start lg:items-start items-center gap-10 inline-flex">
+                        <div className="w-full flex-col justify-start lg:items-start items-center gap-4 flex">
+                            <h2 className="text-gray-900 text-4xl font-bold font-manrope leading-normal lg:text-start text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae obcaecati, laborum dicta cupiditate accusantium dolore doloribus aut repudiandae nihil dignissimos impedit earum molestiae modi sint? Ipsum earum aliquid quisquam facilis.</p>
+                        </div>
+                      
+                    </div>
+                    <img className="lg:mx-0 mx-auto h-full rounded-3xl object-cover" src="https://pagedone.io/asset/uploads/1717751272.png" alt="about Us image" />
+                </div>
+            </div>
+          </section>
+        </div>
+        
+        <form className="max-w-sm mx-auto shadow-2xl p-5 mb-20" id="contact">
+          <h1 className="text-center font-bold font mb-3 text-lg">Contact</h1>
+          <div className="mb-5">
+              <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">First Name</label>
+              <input type="text" id="large-input" placeholder="Enter your First Name" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base dark:bg-gray dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"></input>
+          </div>
+          <div className="mb-5">
+              <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Last Name</label>
+              <input type="text" id="large-input" placeholder="Enter your Last Name" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base dark:bg-gray dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"></input>
+          </div>
+          <div className="mb-5">
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">E-mail</label>
+              <input type="email" id="email" placeholder="Enter your e-mail" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base dark:bg-gray dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"></input>
+              <p id="helper-text-explanation" className="mt-2 text-sm text-gray-500 dark:text-gray-400">We’ll never share your details. Read our <a href="#" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.</p>
+          </div>
+          <div className="mb-5">
+              <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-black">Message</label>
+              <input type="text" id="large-input" placeholder="Enter your message" className="block w-full p-6 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base dark:bg-gray dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"></input>
+          </div>
+          <button type="submit" className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-500">Send</button>
+        </form>
+
+    
+    
     </div>
   );
 }

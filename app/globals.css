@@ -25,7 +25,8 @@ body {
 }
 @theme {
   --color-background: #FFA500;
+  --color-orange: #FFA500;
   --color-black: #000000;
   --color-white: #ffffff;
-  
+  --color-gray: #dfe8e2;
 }
