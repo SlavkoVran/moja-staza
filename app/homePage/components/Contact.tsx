@@ -1,5 +1,7 @@
 export function Contact() {
-  return <div><form className="max-w-sm mx-auto shadow-2xl p-5 mb-20" id="contact">
+  return (
+    <div className="h-screen flex items-center justify-center">
+      <form className="max-w-sm mx-auto shadow-2xl p-5 mb-20" id="contact">
         <h1 className="text-center font-bold font mb-3 text-lg">Contact</h1>
         <div className="mb-5">
           <label
@@ -76,5 +78,7 @@ export function Contact() {
         >
           Send
         </button>
-      </form></div>;
+      </form>
+    </div>
+  );
 }

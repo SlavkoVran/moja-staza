@@ -1,51 +1,93 @@
-import { Contact } from "./components/Contact";
-import { AboutUs } from "./components/AboutUs"
+"use client";
+import { Contact } from "@/app/homePage/components/Contact";
+import { AboutUs } from "./components/AboutUs";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { HamburgerButton } from "./components/HamburgerButton";
+import { useActiveSection } from "@/app/hooks/useActiveSection";
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+  const activeSection = useActiveSection(["home", "about_us", "contact"]);
+
   return (
-    <div>
-      <main className={`pt-32`}></main>
-
-      <header className="bg-background p-3 pb-6 shadow w-full fixed top-0 left-0 right-0 z-50">
-        <div className="relative mx-auto flex max-w-screen-lg flex-col sm:flex-row sm:items-center sm:justify-end">
-          {/* Hamburger dugme */}
-          <input className="peer hidden" type="checkbox" id="navbar-toggle" />
-          <label
-            htmlFor="navbar-toggle"
-            className="absolute right-4 top-0 cursor-pointer text-white text-2xl sm:hidden"
+    <div className="relative">
+      <header className="bg-background flex justify-end items-center h-14 shadow fixed top-0 left-0 right-0 z-50 px-4">
+        <HamburgerButton isOpen={menuOpen} toggle={toggleMenu} />
+        <nav className="hidden sm:flex gap-10 text-white text-lg">
+          <a
+            href="#home"
+            className={
+              activeSection === "home" ? "text-orange-500 font-bold" : ""
+            }
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 448 512"
-            >
-              <path
-                fill="currentColor"
-                d="M0 96c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zm0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z"
-              />
-            </svg>
-          </label>
-
-          <nav className="peer-checked:block hidden sm:block mt-4 sm:mt-0 w-full sm:w-auto text-right sm:text-right">
-            <ul className="flex flex-col sm:flex-row mt-4 sm:space-x-10 text-white text-lg">
-              <li className="hover:text-orange-700 active">
-                <a href="#">Home</a>
-              </li>
-              <li className="hover:text-orange-700">
-                <a href="#about_us">About Us</a>
-              </li>
-              <li className="hover:text-orange-700">
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+            Home
+          </a>
+          <a
+            href="#about_us"
+            className={
+              activeSection === "about_us" ? "text-orange-500 font-bold" : ""
+            }
+          >
+            About Us
+          </a>
+          <a
+            href="#contact"
+            className={
+              activeSection === "contact" ? "text-orange-500 font-bold" : ""
+            }
+          >
+            Contact
+          </a>
+        </nav>
       </header>
-      
-      <AboutUs />
-      
-      <Contact />
+
+      {/* Mobile meni */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            key="mobile-nav"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed top-14 left-0 right-0 bg-background shadow z-40 flex flex-col items-end px-4 py-4 text-white text-lg sm:hidden"
+          >
+            <a href="#" onClick={() => setMenuOpen(false)} className="mb-2">
+              Home
+            </a>
+            <a
+              href="#about_us"
+              onClick={() => setMenuOpen(false)}
+              className="mb-2"
+            >
+              About Us
+            </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+      <main
+        className="pt-14 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth"
+        id="scroll-container"
+      >
+        <section id="home" className="snap-start h-screen">
+          <div className="h-screen flex items-center justify-center bg-black text-white">
+            <h1 className="text-4xl">Home</h1>
+          </div>
+        </section>
+        <section id="about_us" className="snap-start h-screen">
+          <AboutUs />
+        </section>
+        <section id="contact" className="snap-start h-screen">
+          <Contact />
+        </section>
+      </main>
     </div>
   );
 }
