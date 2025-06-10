@@ -1,6 +1,7 @@
 "use client";
 import { Contact } from "@/app/homePage/components/Contact";
 import { AboutUs } from "./components/AboutUs";
+import { Home } from "./components/Home";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -77,9 +78,7 @@ export default function HomePage() {
         id="scroll-container"
       >
         <section id="home" className="snap-start h-screen">
-          <div className="h-screen flex items-center justify-center bg-black text-white">
-            <h1 className="text-4xl">Home</h1>
-          </div>
+          <Home />
         </section>
         <section id="about_us" className="snap-start h-screen">
           <AboutUs />
